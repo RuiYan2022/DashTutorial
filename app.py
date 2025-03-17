@@ -3,9 +3,18 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
+import dash_auth # authentication
+
+
+# Get credentials from Render environment variables
+VALID_USERS = {
+    os.environ.get("DASH_USERNAME"): os.environ.get("DASH_PASSWORD")
+}
 
 # Create a Dash app
 app = dash.Dash(__name__)
+
+auth = dash_auth.BasicAuth(app, VALID_USERS)
 server = app.server  # Required for Render deployment
 
 # Initial dataset

@@ -4,3 +4,5 @@ dash-html-components
 dash_auth 
 plotly
 gunicorn
+flask
+python-dotenv
